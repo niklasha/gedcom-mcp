@@ -1,0 +1,3 @@
+bind_address = "127.0.0.1:8080"
+gedcom_path = "examples/sample.ged"
+persistence_path = "examples/state.json"

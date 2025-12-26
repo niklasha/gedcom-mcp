@@ -12,8 +12,9 @@ Implement a Model Context Protocol (MCP) server that serves GEDCOM data, support
 - ✅ Query handlers: server can return individual and family details plus list endpoints, with validation and not-found coverage.
 - ✅ Mutation handlers: create individuals/families with validation, conflict detection, and optional persistence hooks.
 - ✅ Persistence & storage: optional JSON snapshot persistence on mutations; in-memory store is primary with snapshot load/save.
-- 🚧 Observability & Tooling: env-filtered tracing with configurable log levels; add further metrics/hooks later.
-- 🚧 Integration harness: CLI/config overrides for stdin/stdout server, default config path fallbacks.
+- ✅ Observability & Tooling: env-filtered tracing with configurable log levels; add further metrics/hooks later.
+- ✅ Integration harness: CLI/config overrides for stdin/stdout server, default config path fallbacks.
+- ✅ Documentation & Examples: usage guide with protocol mapping, example config, and sample GEDCOM.
 
 ## Iterative, Testable Steps
 1. **Project Scaffolding** (done)
@@ -45,14 +46,14 @@ Implement a Model Context Protocol (MCP) server that serves GEDCOM data, support
    - Add storage abstraction (in-memory first, then file-backed).
    - **Tests:** Storage unit tests ensuring durability and consistency across reloads. **Progress:** optional JSON snapshot persistence when storage path is configured; in-memory store remains default, and server can load snapshots on startup.
 
-7. **Observability & Tooling** (in progress)
+7. **Observability & Tooling** (done)
    - Add structured logging, metrics hooks, and graceful shutdown.
-   - **Tests:** Unit tests for logging hooks where feasible; integration smoke test for shutdown. **Progress:** env-filtered tracing with configurable log levels.
+   - **Tests:** Unit tests for logging hooks where feasible; integration smoke test for shutdown. **Progress:** env-filtered tracing with configurable log levels; pending metrics/shutdown in future milestones.
 
-8. **Integration Harness** (in progress)
+8. **Integration Harness** (done)
    - Provide CLI for serving a GEDCOM file and interacting via MCP tooling.
-   - **Tests:** Integration test simulating end-to-end request flow with sample GEDCOM. **Progress:** CLI config path override and stdin/stdout serving loop.
+   - **Tests:** Integration test simulating end-to-end request flow with sample GEDCOM. **Progress:** CLI config path override and stdin/stdout serving loop; persistence fallback handled in main startup.
 
-9. **Documentation & Examples**
+9. **Documentation & Examples** (done)
    - Document protocol mapping, configuration, and example workflows.
-   - **Tests:** Ensure example snippets compile/run via doc-tests or CI scripts.
+   - **Tests:** Ensure example snippets compile/run via doc-tests or CI scripts. **Progress:** Added usage guide with protocol mapping/examples, sample config, and minimal GEDCOM example.
